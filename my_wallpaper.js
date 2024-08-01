@@ -1,41 +1,73 @@
 //your parameter variables go here!
-var bX = 100;
-var bY = 50;
-var bHeight = 50;
-var bLength = 50;
+var bX1 = 80; //x location of first bee 
+var bY1 = 50; //y location of first bee 
 
-// var bX = 100; in case shit fucks
-// var bY = 50;
-// var bHeight = 50;
-// var bLength = 50;
+var bX2 = 180 //x location of second bee
+var bY2 = 140//y location of second bee
 
-var MidFlowerSizeX = 20;
-var MidFlowerSizeY = 20;
+var bHeight = 35; //height value of bee elements (except curve values)
+var bLength = 50; //length value of bee elements (except curve values)
 
-var MidFlowerHEX = '#9ACCFF';
-var PetalHex = '#C1E3FF';
+var fX1 = 160 //x location of first flower
+var fY1 = 35  //y location of first flower
 
-var AnglePetalSizeX = 30;
-var AnglePetalSizeY = 15;
+var fX2 = 50  //x location of second flower
+var fY2 = 150 //y location of second flower
 
-var UpDownPetalSizeX = 15;
-var UpDownPetalSizeY = 30;
-var LeftRightPetalSizeX = 30;
-var LeftRightPetalSizeY = 15;
+var fX3 = 150 //x location of third flower
+var fY3 = 180 //y location of third flower
 
-var lX = 200
-var lY = 50
-var lH = 200
-var lL = 50
+var fX4 = 30  //x location of forth flower
+var fY4 = 90  //y location of forth flower
 
-var sX = 30
-var sY = 30
+var fX5 = 110 //x location of fifth flower
+var fY5 = 150 //y location of fifth flower
+
+var fX6 = 100 //x location of sixth flower
+var fY6 = 70  //y location of sixth flower
+
+var PetalHex1 = '#C1E3FF' //hex for first petals
+var MidHex1 = '#9ACCFF'  //hex for first middle flower
+
+var PetalHex2 = '#C1E3FF' //hex for second petals
+var MidHex2 = '#9ACCFF'  //hex for second middle flower
+
+
+var PetalHex3 = '#b899ff' //hex for third petals
+var MidHex3 = '#704bc4'  //hex for third middle flower
+
+var PetalHex4 = '#b899ff'  //hex for forth petals
+var MidHex4 = '#704bc4'  //hex for forth middle flower
+
+var PetalHex5 = '#b899ff' //hex for fifth petals
+var MidHex5 = '#704bc4' //hex for fifth middle flower
+
+var PetalHex6 = '#ffb5f6' //hex for sixth petals
+var MidHex6 = '#cf63c1'  //hex for sixth middle flower
+
+var lX1 = 205 //x value of ladybug
+var lY1 = 100 //y value of ladybug
+
+var lX2 = 100 //x value of second ladybug
+var lY2 = 200 //y value of second ladybug
+
+var lH = 150 //height value of ladybug 
+var lL = 50 //length value of ladybug
+
+var sX1 = 20 //x value of sparkle 
+var sY1 = 30 //y value of sparkle 
+
+var sX2 = 145 //x value of sparkle 
+var sY2 = 131 //y value of sparkle 
+
+var sX3 = 80 //x value of sparkle 
+var sY3 = 110 //y value of sparkle 
 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
-  pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(A3);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
 angleMode(DEGREES);
 
   //Grid settings
@@ -45,112 +77,50 @@ angleMode(DEGREES);
 }
 
 function wallpaper_background() {
-  background("#fbe9dd"); //light honeydew green colour
+  background("#ff7595"); //light pinkish yellow
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
- let fX = 100;
- let fY = 100;
- 
- let bX = 100;
- let bY = 50;
- let bHeight = 50;
- let bLength = 50;
- 
 
-let PinkPetalHex = '#ffb5f6';
-let PinkMidFlowerHex = '#cf63c1';
- DrawFlower(100,70,PinkPetalHex,PinkMidFlowerHex);
- DrawFlower(10,35,PetalHex,MidFlowerHEX);
- DrawFlower(50,150,PetalHex,MidFlowerHEX);
+ DrawFlower(fX1,fY1,PetalHex1,MidHex1); //default blue flower
+ DrawFlower(fX2,fY2,PetalHex2,MidHex2); //default blue flower
+ DrawFlower(fX3,fY3, PetalHex3, MidHex3); //x,y location of red flower 
+ DrawFlower(fX4,fY4, PetalHex4, MidHex4); //x,y location of red flower 
+ DrawFlower(fX5,fY5,PetalHex5, MidHex5); //x,y location of purple flower 
+ DrawFlower(fX6,fY6,PetalHex6,MidHex6); //pink flower
+
+ DrawBee(bX1,bY1,bHeight,bLength); //x, y, height, length 
+
+ DrawBee(bX2,bY2,bHeight,bLength); //x, y, height, length 
+
+ DrawLadyBird(lX1,lY1,lH,lL); //x, y, height, length of ladybird/bug
+ DrawLadyBird(lX2,lY2,lH,lL) //x, y, height, length of ladybird/bug
 
 
-let RedPetalHex = '#FF5733';
-let RedMidFlowerHex = '#bf2200';
-DrawFlower(200,110, RedPetalHex, RedMidFlowerHex);
 
-let PurplePetalHex = '#b899ff'
-let PurpleMidFlowerHex = '#704bc4'
-DrawFlower(180,-10,PurplePetalHex, PurpleMidFlowerHex);
+ DrawSparkle(sX1,sY1); //x, y location of sparkle
+ DrawSparkle(sX2,sY2); //x, y location of sparkle
+ DrawSparkle(sX3,sY3); //x, y location of sparkle
 
-DrawBee(bX,bY,bHeight,bLength);
-
-let newBX = 150;
-let newBY = 150;
-
-DrawBee(newBX,newBY,bHeight,bLength);
- let newFX = 150;
- let newFY = 50;
-
-//  let lY = 200;
-//  let lY = 50;
- 
- DrawLadyBug(lX,lY,lH,lL);
- DrawLadyBug(40,65,lH,lL)
-
- DrawSparkle(sX+15,sY+5);
- DrawSparkle(sX+130,sY+40);
-
- 
- 
 }
 
-function DrawBee(bX,bY,bHeight,bLength) {
-  noStroke();
-  fill("#fffafa8");
-  ellipse(bX-10, bY-28, bHeight-30, bLength-30); //wing 1
-  ellipse(bX+8, bY-28, bHeight-30, bLength-30);  //wing 2
-  
-  noStroke();
-  fill("#f0db71");
-  ellipse(bX,bY,bHeight+3,bLength-10); //body light
-  fill("#edcf39");
-  arc(bX,bY,bHeight+3,bLength-10,-90,90); //body shaded
-
-  noFill();
-  strokeWeight(2);
-  stroke(0);
-
-  let C1A1 = {x: bX - 65, y: bY - 24};
-  let C1A2 = {x: bX - 30, y: bY - 20};
-  let C2A1 = {x: bX - 65, y: bY - 24};
-  let C2A2 = {x: bX - 30, y: bY - 20};
-  let C3A1 = {x: bX - 65, y: bY - 24};
-  let C3A2 = {x: bX - 30, y: bY - 0};
-
-  curve(C1A1.x,C1A1.y,bX+6,bY-18,bX+6,bY+19,C1A2.x,C1A2.y); //back curve
-  curve(C2A1.x,C2A1.y,bX-2,bY-19,bX,bY+20,C2A2.x,C2A2.y); //middle curve
-  curve(C3A1.x,C3A1.y,bX-8,bY-18,bX-6,bY+20,C3A2.x,C3A2.y); //front curve
-  
-  ellipse(bX-15,bY-7,2,2); //eye
-
- 
-
-  noStroke();
-  fill("#ff91a5");
-  
-}
-  
 function DrawFlower(x,y, petalColour,midColour){
+
+  const originalPetalHex = '#C1E3FF'; //'const' making sure the code keeps track and cements the hex values in relation to the corresponding 'if' statement
+  const RedPetalHex = '#FF5733'
+  const PurplePetalHex = '#b899ff'
+  const PinkPetalHex = '#ffb5f6'
   
-  const originalPetalHex = '#C1E3FF';
-
-  const RedFlowerHex = '#FF5733'
-
-  const PurpleFlowerHex = '#b899ff'
-
-  const PinkFlowerHex = '#ffb5f6'
-  
-  let AnglePetalSizeX = 30;
+  let AnglePetalSizeX = 50; //giving more context for the 'if' statement to function properly, having the petal and middleflower xy variables stated inside the function rather than outside.
   let AnglePetalSizeY = 15;
   let UpDownPetalSizeX = 15;
-  let UpDownPetalSizeY = 30;
-  let LeftRightPetalSizeX = 30;
+  let UpDownPetalSizeY = 50;
+  let LeftRightPetalSizeX = 50;
   let LeftRightPetalSizeY = 15;
   let MidFlowerSizeX = 20;
   let MidFlowerSizeY = 20;
 
-  if (petalColour === RedFlowerHex) {
+  if (petalColour === RedPetalHex) { //if the value stored in 'petalcolour' (the value of which can be changed using the 'let' variables at the draw point and const) equals 'RedPetalHex' (stated in the const) is the same, adjust the x,y size values of flower by an amount (in this case divided by 2)
     AnglePetalSizeX /= 2;
     AnglePetalSizeY /= 2;
     UpDownPetalSizeX /= 2;
@@ -160,7 +130,7 @@ function DrawFlower(x,y, petalColour,midColour){
     MidFlowerSizeX /= 2;
     MidFlowerSizeY /= 2;
   }
-    if (petalColour === PurpleFlowerHex) {
+    if (petalColour === PurplePetalHex) { //"
     AnglePetalSizeX /= 2.5;
     AnglePetalSizeY /= 2.5;
     UpDownPetalSizeX /= 2.5;
@@ -170,8 +140,7 @@ function DrawFlower(x,y, petalColour,midColour){
     MidFlowerSizeX /= 2.5;
     MidFlowerSizeY /= 2.5;
     }
- 
-  if (petalColour === PinkFlowerHex) {
+  if (petalColour === PinkPetalHex) { //"
     AnglePetalSizeX *= 1.5;
     AnglePetalSizeY *= 1.5;
     UpDownPetalSizeX *= 1.5;
@@ -183,13 +152,13 @@ function DrawFlower(x,y, petalColour,midColour){
   }
   
   push()
-  translate(x,y);
+  translate(x,y); 
   
-  stroke("#bbe090");
+  stroke("#bbe090"); //green stem colour
   strokeWeight(2);
   noFill();
 
-  let stemControlP1 = { x:0, y: 50};
+  let stemControlP1 = { x:0, y: 50}; //simplified version of the bee curve functions
   let stemControlP2 = { x: 20, y: 100};
   let stemEndP = { x: 0, y: 80};
 
@@ -221,7 +190,38 @@ function DrawFlower(x,y, petalColour,midColour){
   pop()
 }
   
-function DrawLadyBug(lX,lY,lH,lL){
+function DrawBee(bX,bY,bHeight,bLength) {
+  noStroke(); //no stroke for wings
+  fill("#fffafa8"); //white fill for wings
+  ellipse(bX-10, bY-28, bHeight-30, bLength-30); //wing 1
+  ellipse(bX+8, bY-28, bHeight-30, bLength-30);  //wing 2
+  
+  noStroke(); 
+  fill("#f0db71"); //lighter yellow fill for body
+  ellipse(bX,bY,bHeight+3,bLength-10); //body light
+  fill("#edcf39"); //darker yellow fill for back of body on top of lighter shade
+  arc(bX,bY,bHeight+3,bLength-10,-90,90); //body shaded
+
+  noFill(); 
+  strokeWeight(2); //stroke for bee curves
+  stroke(0); 
+
+  let C1A1 = {x: bX - 65, y: bY - 24}; //c = curve, a = anchor point ; each 'C#A#' function having x,y values relating to bees x and y location
+  let C1A2 = {x: bX - 30, y: bY - 20};
+  let C2A1 = {x: bX - 65, y: bY - 24};
+  let C2A2 = {x: bX - 30, y: bY - 20};
+  let C3A1 = {x: bX - 65, y: bY - 24};
+  let C3A2 = {x: bX - 30, y: bY - 0};
+
+  curve(C1A1.x,C1A1.y,bX+6,bY-18,bX+6,bY+19,C1A2.x,C1A2.y); //back curve
+  curve(C2A1.x,C2A1.y,bX-2,bY-19,bX,bY+20,C2A2.x,C2A2.y); //middle curve
+  curve(C3A1.x,C3A1.y,bX-8,bY-18,bX-6,bY+20,C3A2.x,C3A2.y); //front curve
+  
+  ellipse(bX-15,bY-7,2,2); //eye
+
+
+}
+function DrawLadyBird(lX,lY,lH,lL){
  
  stroke(0);
  strokeWeight(1)
@@ -260,21 +260,10 @@ strokeWeight(1);
 function DrawSparkle(sX,sY){
 
   strokeWeight(1)
-  stroke("#a7ab37")
-  line(sX,sY,sX,sY+15)
-  line(sX-5,sY+7,sX+5,sY+7)
+  stroke("#dbc500")
+  line(sX,sY,sX,sY+15) //sparkle y
+  line(sX-5,sY+7,sX+5,sY+7) //sparkle x
 
-  // function DrawHeart(x,y){
-   
-    // triangle(75,75,25,75,75,25);
-    // triangle(75,75,25,75,75,125);
-    // triangle(75,75,125,75,75,25);
-    // triangle(75,75,125,75,75,125);
-    // circle(50,50, Math.sqrt(50 * 50 + 50 * 50));
-    // circle(100,50, Math.sqrt(50 * 50 + 50 * 50));
-  
-  
-  
   }
   
   
@@ -284,72 +273,3 @@ function DrawSparkle(sX,sY){
    
 
   
-//   let bX = 100;  just in case this shit fucks up
-//  let bY = 50;
-//  let bHeight = 50;
-//  let bLength = 50;
- 
-//  DrawBee(bX,bY,bHeight,bLength);
-
-//  let newBX = 150;
-//  let newBY = 150;
-
-//  DrawBee(newBX,newBY,bHeight,bLength);
-
-// let flowerCoordinates = [
-//   {x: 100, y: 100},
-//   {x: 10, y: 50},
-//   {x: 50, y: 150}
-// ];
-
-// for (let i = 0; i < flowerCoordinates.length; i++) { //let is for block-scoped variables, so defining within the block rather than outside the block- var is for function scoped variables so will set variables for the whole thing?
-//   let coord = flowerCoordinates[i];
-//   DrawFlower (coord.x, coord.y);
-// }
-// }
-
-//  let newFX = 150;
-//  let newFY = 50;
-
-
-
-// function DrawBee(bX,bY,bHeight,bLength) {
-//   noStroke();
-//   fill("#fffafa8");
-//   ellipse(bX-10, bY-28, bHeight-30, bLength-30); // Wing 1
-//   ellipse(bX+8, bY-28, bHeight-30, bLength-30);  // Wing 2
-//   // line(85,57,88,54);
-  
-//   noStroke();
-//   fill("#f0db71");
-//   ellipse(bX,bY,bHeight+3,bLength-10);
-//   fill("#edcf39");
-//   arc(bX,bY,bHeight+3,bLength-10,-90,90);
-
-//   noFill();
-//   strokeWeight(2);
-//   stroke(0);
-
-//   let C1A1 = {x: bX - 65, y: bY - 24};
-//   let C1A2 = {x: bX - 30, y: bY - 20};
-//   let C2A1 = {x: bX - 65, y: bY - 24};
-//   let C2A2 = {x: bX - 30, y: bY - 20};
-//   let C3A1 = {x: bX - 65, y: bY - 24};
-//   let C3A2 = {x: bX - 30, y: bY - 0};
-
-//   curve(C1A1.x,C1A1.y,bX+6,bY-18,bX+6,bY+19,C1A2.x,C1A2.y);
-//   curve(C2A1.x,C2A1.y,bX-2,bY-19,bX,bY+20,C2A2.x,C2A2.y);
-//   curve(C3A1.x,C3A1.y,bX-8,bY-18,bX-6,bY+20,C3A2.x,C3A2.y);
-  
-//   ellipse(bX-15,bY-7,2,2);
-
- 
-
-//   noStroke();
-//   fill("#ff91a5");
-  
- 
-
-  
-
-
